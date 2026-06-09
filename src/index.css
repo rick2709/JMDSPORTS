@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   CSS CUSTOM PROPERTIES — DARK MODE (default)
+   ============================================= */
+:root {
+  --color-bg:      13  13  13;   /* #0D0D0D */
+  --color-surface: 20  20  20;   /* #141414 */
+  --color-border:  42  42  42;   /* #2A2A2A */
+  --color-muted:   160 160 160;  /* #A0A0A0 */
+  --color-text:    255 255 255;  /* #FFFFFF */
+}
+
+/* =============================================
+   CSS CUSTOM PROPERTIES — LIGHT MODE
+   ============================================= */
+html.light-mode {
+  --color-bg:      242 242 242;  /* #F2F2F2 */
+  --color-surface: 255 255 255;  /* #FFFFFF */
+  --color-border:  224 224 224;  /* #E0E0E0 */
+  --color-muted:   85  85  85;   /* #555555 */
+  --color-text:    13  13  13;   /* #0D0D0D */
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.3s ease;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(200, 241, 53, 0.35);
+  }
+
+  .neon-text-glow {
+    text-shadow: 0 0 30px rgba(200, 241, 53, 0.6);
+  }
+
+  /* Glass nav — updated by Navbar/BottomNav components directly via style prop */
+  .glass-dark {
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* Card surface uses CSS variables — responds automatically */
+  .card-surface {
+    background-color: rgb(var(--color-surface));
+    border: 1px solid rgb(var(--color-border));
+    transition: background-color 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* =============================================
+   LIGHT MODE — targeted overrides
+   ============================================= */
+
+/* Cards get a soft shadow in light mode */
+html.light-mode .card-surface {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+/* Primary action buttons: lime → forest green in light */
+html.light-mode button.btn-primary {
+  background-color: #1A3C2E;
+  color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(26, 60, 46, 0.3);
+}
+
+/* Outlined buttons in light */
+html.light-mode button.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: #1A3C2E;
+  color: #1A3C2E;
+}
+
+/* Neon-glow override in light mode (softer forest glow) */
+html.light-mode .neon-glow {
+  box-shadow: 0 0 16px rgba(26, 60, 46, 0.35);
+}
+
+/* Hero stat ticker in light */
+html.light-mode .hero-stat-bar {
+  background-color: rgba(242, 242, 242, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* =============================================
+   PROGRESS BAR
+   ============================================= */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #C8F135;
+  z-index: 9999;
+  box-shadow: 0 0 12px #C8F135;
+}
+
+/* =============================================
+   INPUT FOCUS GLOW
+   ============================================= */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #C8F135 !important;
+  box-shadow: 0 0 0 2px rgba(200, 241, 53, 0.2) !important;
+}
+
+html.light-mode input:focus,
+html.light-mode textarea:focus,
+html.light-mode select:focus {
+  border-color: #1A3C2E !important;
+  box-shadow: 0 0 0 2px rgba(26, 60, 46, 0.15) !important;
+}
