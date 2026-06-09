@@ -37,7 +37,7 @@ const programs = [
 ]
 
 const coaches = [
-  { name: 'Coach JB Moyo', title: 'Head Coach', img: '/blackgirlracket.png', exp: '15+ years' },
+  { name: 'Coach Joseph Mhike', title: 'Head Coach', img: '/blackgirlracket.png', exp: '15+ years' },
   { name: 'Coach Tariro Ndlovu', title: 'Juniors Specialist', img: '/tennishand.jpg', exp: '8 years' },
   { name: 'Coach Simba Chikwanda', title: 'Fitness & Conditioning', img: '/racket on ground.jpg', exp: '10 years' },
 ]
@@ -92,6 +92,16 @@ export default function CoachingPage({ navigate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const msg = encodeURIComponent(
+      `🎾 *New Booking — JBMSPORTS*\n\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📧 *Email:* ${formData.email}\n` +
+      `📱 *Phone:* ${formData.phone}\n` +
+      `🏆 *Program:* ${formData.program}\n` +
+      `📅 *Date:* ${formData.date || 'Not specified'}\n` +
+      `💬 *Message:* ${formData.message || 'None'}`
+    )
+    window.open(`https://wa.me/263783316659?text=${msg}`, '_blank')
     setSubmitted(true)
   }
 

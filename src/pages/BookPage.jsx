@@ -16,6 +16,17 @@ export default function BookPage({ navigate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const msg = encodeURIComponent(
+      `🎾 *New Booking — JBMSPORTS*\n\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📧 *Email:* ${formData.email}\n` +
+      `📱 *Phone:* ${formData.phone}\n` +
+      `🏆 *Program:* ${formData.program}\n` +
+      `📅 *Date:* ${formData.date || 'Not specified'}\n` +
+      `⏰ *Time:* ${selectedTime || 'Not selected'}\n` +
+      `💬 *Message:* ${formData.message || 'None'}`
+    )
+    window.open(`https://wa.me/263783316659?text=${msg}`, '_blank')
     setSubmitted(true)
   }
 

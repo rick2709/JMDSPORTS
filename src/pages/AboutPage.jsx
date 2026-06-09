@@ -56,8 +56,8 @@ export default function AboutPage({ navigate }) {
             <p className="text-lime text-sm tracking-[0.3em] uppercase mb-4">The Beginning</p>
             <h2 className="font-heading text-4xl md:text-5xl text-primary mb-6">FROM ONE COURT TO A MOVEMENT</h2>
             <div className="space-y-4 text-muted text-sm leading-relaxed">
-              <p>JBMSPORTS started in 2015 when Coach JB Moyo returned to Harare after completing his ITF Level 3 certification abroad. With a borrowed court and a passion to share what he'd learned, he began coaching a small group of 12 students in Borrowdale.</p>
-              <p>Within two years, that group had grown to 120 students. Players who trained with JB began winning regional tournaments. Parents and kids started lining up for spots. It was clear — Zimbabwe was hungry for this.</p>
+              <p>JBMSPORTS started in 2015 when Coach Joseph Mhike returned to Harare after completing his ITF Level 3 certification abroad. With a borrowed court and a passion to share what he'd learned, he began coaching a small group of 12 students in Borrowdale.</p>
+              <p>Within two years, that group had grown to 120 students. Players who trained with Joseph began winning regional tournaments. Parents and kids started lining up for spots. It was clear — Zimbabwe was hungry for this.</p>
               <p>Today, JBMSPORTS operates across 3 premium courts in Harare, has trained 500+ players, and runs Zimbabwe's only nationally-recognised junior tennis development pipeline. We also opened Zimbabwe's first dedicated tennis equipment store, bringing world brands like Wilson, Babolat, and Nike to local players.</p>
             </div>
           </motion.div>
@@ -69,10 +69,10 @@ export default function AboutPage({ navigate }) {
             className="relative h-[400px] rounded-2xl overflow-hidden"
             whileHover={{ scale: 1.01 }}
           >
-            <img src="/blackgirlracket.png" alt="Coach JB Moyo" className="w-full h-full object-cover object-top" />
+            <img src="/blackgirlracket.png" alt="Coach Joseph Mhike" className="w-full h-full object-cover object-top" />
             <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
             <div className="absolute bottom-6 left-6">
-              <p className="text-lime text-xs tracking-widest uppercase">Coach JB Moyo</p>
+              <p className="text-lime text-xs tracking-widest uppercase">Coach Joseph Mhike</p>
               <p className="text-primary font-heading text-xl">Founder & Head Coach</p>
             </div>
           </motion.div>

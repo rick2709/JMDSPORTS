@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
 import ProgressBar from './components/ProgressBar'
 import ThemeToggle from './components/ThemeToggle'
+import WhatsAppButton from './components/WhatsAppButton'
 import HomePage from './pages/HomePage'
 import ShopPage from './pages/ShopPage'
 import CoachingPage from './pages/CoachingPage'
@@ -64,6 +65,7 @@ function AppInner() {
       </AnimatePresence>
 
       <BottomNav activePage={activePage} navigate={navigate} />
+      <WhatsAppButton />
     </div>
   )
 }

@@ -3,10 +3,10 @@ import { useRef, useState } from 'react'
 
 const coaches = [
   {
-    name: 'Coach JB Moyo',
+    name: 'Coach Joseph Mhike',
     title: 'Head Coach & Founder',
     specialty: 'All-round game development',
-    bio: '15+ years of competitive tennis. Former national champion and certified ITF Level 3 coach. JB founded JBMSPORTS to give Zimbabwean athletes access to world-class coaching.',
+    bio: '15+ years of competitive tennis. Former national champion and certified ITF Level 3 coach. Joseph founded JBMSPORTS to give Zimbabwean athletes access to world-class coaching.',
     img: '/blackgirlracket.png',
   },
   {
