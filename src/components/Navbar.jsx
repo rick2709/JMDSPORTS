@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
+import { ShoppingCart } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
+import { useCart } from '../context/CartContext'
 import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
@@ -12,6 +14,7 @@ const navLinks = [
 
 export default function Navbar({ activePage, navigate }) {
   const { isDark } = useTheme()
+  const { count, setIsOpen } = useCart()
 
   const navBg = isDark
     ? 'rgba(13, 13, 13, 0.85)'
@@ -67,6 +70,23 @@ export default function Navbar({ activePage, navigate }) {
 
       <div className="flex items-center gap-3">
         <ThemeToggle />
+
+        {/* Cart button */}
+        <motion.button
+          onClick={() => setIsOpen(true)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="relative p-2 text-muted hover:text-primary transition-colors"
+          aria-label="Open cart"
+        >
+          <ShoppingCart size={22} />
+          {count > 0 && (
+            <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-lime text-[#0D0D0D] text-[10px] font-bold flex items-center justify-center">
+              {count > 9 ? '9+' : count}
+            </span>
+          )}
+        </motion.button>
+
         <motion.button
           onClick={() => navigate('book')}
           className={`btn-primary font-heading text-sm px-5 py-2 rounded-full tracking-wider transition-all ${

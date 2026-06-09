@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ShoppingBag, Plus } from 'lucide-react'
+import { useCart } from '../../context/CartContext'
 
 const products = [
   { name: 'Wilson Pro Staff Racket', price: 85, img: '/racket.jpg', category: 'Rackets' },
@@ -13,10 +14,12 @@ const products = [
 
 function ProductCard({ product, index }) {
   const [added, setAdded] = useState(false)
+  const { addItem } = useCart()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
 
   const handleAdd = () => {
+    addItem(product)
     setAdded(true)
     setTimeout(() => setAdded(false), 2000)
   }

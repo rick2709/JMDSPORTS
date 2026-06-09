@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ThemeProvider } from './context/ThemeContext'
+import { CartProvider } from './context/CartContext'
 import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
+import CartDrawer from './components/CartDrawer'
 import ProgressBar from './components/ProgressBar'
 import ThemeToggle from './components/ThemeToggle'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -65,6 +67,7 @@ function AppInner() {
       </AnimatePresence>
 
       <BottomNav activePage={activePage} navigate={navigate} />
+      <CartDrawer />
       <WhatsAppButton />
     </div>
   )
@@ -73,7 +76,9 @@ function AppInner() {
 export default function App() {
   return (
     <ThemeProvider>
-      <AppInner />
+      <CartProvider>
+        <AppInner />
+      </CartProvider>
     </ThemeProvider>
   )
 }

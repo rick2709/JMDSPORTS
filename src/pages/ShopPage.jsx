@@ -1,7 +1,8 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Plus, Filter } from 'lucide-react'
+import { Plus, Filter, ShoppingCart } from 'lucide-react'
 import Footer from '../components/Footer'
+import { useCart } from '../context/CartContext'
 
 const allProducts = [
   { name: 'Wilson Pro Staff 97 Racket', price: 85, category: 'Rackets', img: '/racket.jpg' },
@@ -22,8 +23,15 @@ const categories = ['All', 'Rackets', 'Shoes', 'Clothing', 'Accessories']
 
 function ProductCard({ product, index }) {
   const [added, setAdded] = useState(false)
+  const { addItem, setIsOpen } = useCart()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
+
+  const handleAdd = () => {
+    addItem(product)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 2000)
+  }
 
   return (
     <motion.div
@@ -54,7 +62,7 @@ function ProductCard({ product, index }) {
         <p className="text-lime font-heading text-xl mb-4">${product.price} USD</p>
 
         <motion.button
-          onClick={() => { setAdded(true); setTimeout(() => setAdded(false), 2000) }}
+          onClick={handleAdd}
           className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-full text-xs font-heading tracking-wider transition-all ${
             added ? 'bg-lime text-dark' : 'border border-lime/40 text-lime hover:bg-lime hover:text-dark'
           }`}
@@ -69,6 +77,7 @@ function ProductCard({ product, index }) {
 
 export default function ShopPage({ navigate }) {
   const [activeCategory, setActiveCategory] = useState('All')
+  const { count, setIsOpen } = useCart()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
 
@@ -111,6 +120,20 @@ export default function ShopPage({ navigate }) {
         >
           Premium tennis equipment and apparel, curated by our coaches and delivered across Zimbabwe.
         </motion.p>
+
+        {count > 0 && (
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            onClick={() => setIsOpen(true)}
+            className="mt-6 flex items-center gap-3 bg-lime text-[#0D0D0D] px-5 py-2.5 rounded-full font-heading text-sm tracking-wider"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <ShoppingCart size={16} />
+            VIEW CART ({count} {count === 1 ? 'ITEM' : 'ITEMS'})
+          </motion.button>
+        )}
       </div>
 
       {/* Filter bar */}
