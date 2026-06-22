@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ThemeProvider } from './context/ThemeContext'
-import { CartProvider } from './context/CartContext'
 import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
-import CartDrawer from './components/CartDrawer'
 import ProgressBar from './components/ProgressBar'
 import ThemeToggle from './components/ThemeToggle'
 import WhatsAppButton from './components/WhatsAppButton'
 import HomePage from './pages/HomePage'
+import SportsPage from './pages/SportsPage'
+import TennisPage from './pages/TennisPage'
+import HockeyPage from './pages/HockeyPage'
+import SwimmingPage from './pages/SwimmingPage'
+import BoxingPage from './pages/BoxingPage'
 import ShopPage from './pages/ShopPage'
 import CoachingPage from './pages/CoachingPage'
 import AboutPage from './pages/AboutPage'
@@ -22,10 +25,15 @@ const pageVariants = {
 
 const pages = {
   home: HomePage,
+  sports: SportsPage,
+  tennis: TennisPage,
+  hockey: HockeyPage,
+  swimming: SwimmingPage,
+  boxing: BoxingPage,
   shop: ShopPage,
   coaching: CoachingPage,
-  book: BookPage,
   about: AboutPage,
+  book: BookPage,
 }
 
 function AppInner() {
@@ -49,25 +57,17 @@ function AppInner() {
       <ProgressBar navigating={navigating} />
       <Navbar activePage={activePage} navigate={navigate} />
 
-      {/* Mobile floating theme toggle — top-right, above bottom nav */}
       <div className="md:hidden fixed top-4 right-4 z-50">
         <ThemeToggle />
       </div>
 
       <AnimatePresence mode="wait">
-        <motion.div
-          key={activePage}
-          variants={pageVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-        >
+        <motion.div key={activePage} variants={pageVariants} initial="initial" animate="animate" exit="exit">
           <PageComponent navigate={navigate} />
         </motion.div>
       </AnimatePresence>
 
       <BottomNav activePage={activePage} navigate={navigate} />
-      <CartDrawer />
       <WhatsAppButton />
     </div>
   )
@@ -76,9 +76,7 @@ function AppInner() {
 export default function App() {
   return (
     <ThemeProvider>
-      <CartProvider>
-        <AppInner />
-      </CartProvider>
+      <AppInner />
     </ThemeProvider>
   )
 }

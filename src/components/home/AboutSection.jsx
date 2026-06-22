@@ -32,8 +32,9 @@ function CounterNumber({ target, suffix = '' }) {
 }
 
 const stats = [
-  { target: 500, suffix: '+', label: 'Players Trained' },
-  { target: 8, suffix: '+', label: 'Elite Coaches' },
+  { target: 500, suffix: '+', label: 'Athletes Trained' },
+  { target: 4, suffix: '', label: 'Sports & Growing' },
+  { target: 8, suffix: '+', label: 'Certified Coaches' },
   { target: 10, suffix: '+', label: 'Years of Excellence' },
 ]
 
@@ -79,10 +80,10 @@ export default function AboutSection() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="text-muted leading-relaxed text-base mb-8"
           >
-            Founded in Harare, JBMSPORTS is Zimbabwe's premier tennis coaching academy. We combine world-class coaching methodology with premium gear to create an unmatched training environment — whether you're swinging your first racket or preparing for national competition.
+            Founded in Harare, JBMSPORTS is Zimbabwe's premier multi-sport academy. Tennis, Hockey, Swimming, Boxing — and more. We combine world-class coaching methodology with premium gear to create an unmatched training environment for every athlete.
           </motion.p>
 
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}

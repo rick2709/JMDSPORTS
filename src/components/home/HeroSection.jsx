@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import { useTheme } from '../../context/ThemeContext'
 
-const heroWords = ['TENNIS', 'COACHING', "ZIMBABWE'S FINEST"]
+const heroWords = ['TRAIN.', 'COMPETE.', 'DOMINATE.']
 
 const statItems = [
-  { value: '500+', label: 'Students Trained' },
+  { value: '500+', label: 'Athletes Trained' },
+  { value: '4', label: 'Sports & Growing' },
   { value: '8+', label: 'Certified Coaches' },
   { value: '10+', label: 'Years Experience' },
-  { value: '#1', label: "Zimbabwe's Best" },
 ]
 
 const wordVariants = {
@@ -99,7 +99,7 @@ export default function HeroSection({ navigate }) {
           animate="visible"
           className="mt-6 text-muted text-base md:text-lg max-w-md leading-relaxed"
         >
-          Train with Zimbabwe's top tennis coaches. Level up your game with elite programs designed to take you from baseline to baseline — and beyond.
+          Zimbabwe's premier multi-sport academy. Tennis, Hockey, Swimming, Boxing — and more.
         </motion.p>
 
         <motion.div
@@ -110,7 +110,7 @@ export default function HeroSection({ navigate }) {
           className="mt-8 flex flex-wrap gap-4"
         >
           <motion.button
-            onClick={() => navigate('book')}
+            onClick={() => navigate('sports')}
             className={`font-heading text-sm px-7 py-3 rounded-full tracking-wider transition-all ${
               isDark
                 ? 'bg-lime text-[#0D0D0D] neon-glow'
@@ -119,7 +119,7 @@ export default function HeroSection({ navigate }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            BOOK A SESSION
+            EXPLORE SPORTS
           </motion.button>
           <motion.button
             onClick={() => navigate('shop')}
