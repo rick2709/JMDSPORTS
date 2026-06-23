@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import { SPORTS_CONFIG } from '../../config/sports'
 
 function CounterNumber({ target, suffix = '' }) {
   const ref = useRef(null)
@@ -99,46 +100,30 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Right: image stack */}
-        <div className="relative h-[420px] md:h-[520px]">
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="absolute top-0 right-0 w-[75%] h-[70%] rounded-2xl overflow-hidden"
-            whileHover={{ scale: 1.02 }}
-          >
-            <img
-              src="/blackgirlracket.png"
-              alt="Tennis player"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.35 }}
-            className="absolute bottom-0 left-0 w-[58%] h-[52%] rounded-2xl overflow-hidden border-2 border-lime/20"
-            whileHover={{ scale: 1.02 }}
-          >
-            <img
-              src="/racket on ground.jpg"
-              alt="Tennis racket on court"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
-          </motion.div>
-
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={inView ? { scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="absolute bottom-6 right-6 bg-lime text-dark px-4 py-2 rounded-full font-heading text-sm"
-          >
-            🏆 Zimbabwe's #1
-          </motion.div>
+        {/* Right: 2x2 sport image grid */}
+        <div className="grid grid-cols-2 gap-3">
+          {SPORTS_CONFIG.map((sport, i) => (
+            <motion.div
+              key={sport.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
+              className="relative rounded-2xl overflow-hidden"
+              style={{ aspectRatio: '4/3' }}
+              whileHover={{ scale: 1.03 }}
+            >
+              <img
+                src={sport.homeCardImg}
+                alt={sport.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/10 to-transparent" />
+              <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
+                <span className="text-base">{sport.emoji}</span>
+                <span className="text-white font-heading text-xs tracking-widest uppercase">{sport.name}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

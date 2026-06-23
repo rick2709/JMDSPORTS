@@ -2,20 +2,22 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Heart, Target, Award, Users } from 'lucide-react'
 import Footer from '../components/Footer'
+import { SPORTS_CONFIG } from '../config/sports'
 
 const values = [
-  { Icon: Heart, title: 'Passion for the Game', desc: 'Tennis is more than a sport — it\'s a way of life. We bring that energy to every session, every court, every moment.' },
-  { Icon: Target, title: 'Excellence in Coaching', desc: 'Our coaches are certified, experienced, and committed to helping every player reach their potential, regardless of age or skill.' },
-  { Icon: Users, title: 'Community & Inclusion', desc: 'We believe tennis should be accessible to all Zimbabweans. We run scholarship programs for talented youth who cannot afford coaching.' },
+  { Icon: Heart, title: 'Passion for Sport', desc: 'Sport is more than competition — it\'s a way of life. We bring that energy to every session, every court, every pool, and every ring.' },
+  { Icon: Target, title: 'Excellence in Coaching', desc: 'Our coaches are certified, experienced, and committed to helping every athlete reach their potential, regardless of age or skill level.' },
+  { Icon: Users, title: 'Community & Inclusion', desc: 'We believe sport should be accessible to all Zimbabweans. We run scholarship programs for talented youth who cannot afford coaching.' },
+  { Icon: Award, title: 'Multi-Sport Growth', desc: 'From Tennis to Hockey, Swimming to Boxing — we are constantly expanding to give Zimbabwe\'s athletes more pathways to excellence.' },
 ]
 
 const gallery = [
-  '/court.jpg',
-  '/blackgirlracket.png',
-  '/racket.jpg',
-  '/balls.jpg',
-  '/racket on ground.jpg',
-  '/tennishand.jpg',
+  { src: '/court.jpg', label: 'Tennis Courts' },
+  { src: SPORTS_CONFIG.find(s => s.id === 'hockey').homeCardImg, label: 'Hockey Pitch' },
+  { src: SPORTS_CONFIG.find(s => s.id === 'swimming').homeCardImg, label: 'Swimming Pool' },
+  { src: SPORTS_CONFIG.find(s => s.id === 'boxing').homeCardImg, label: 'Boxing Gym' },
+  { src: '/tennishand.jpg', label: 'Tennis Training' },
+  { src: '/blackgirlracket.png', label: 'Junior Development' },
 ]
 
 export default function AboutPage({ navigate }) {
@@ -28,7 +30,7 @@ export default function AboutPage({ navigate }) {
       {/* Hero */}
       <div ref={ref} className="relative py-24 px-6 md:px-16 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/tennishand.jpg" alt="Tennis player on court" className="w-full h-full object-cover object-top" />
+          <img src="/tennishand.jpg" alt="JBMSPORTS academy" className="w-full h-full object-cover object-top" />
           <div className="absolute inset-0 bg-dark/85" />
         </div>
         <div className="relative z-10 max-w-3xl">
@@ -39,7 +41,7 @@ export default function AboutPage({ navigate }) {
             BUILT IN<br /><span className="text-lime">ZIMBABWE</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.25 }} className="text-muted leading-relaxed text-base max-w-xl">
-            JBMSPORTS was founded in Harare with a single mission: to give Zimbabwe's tennis players access to world-class coaching and premium equipment, right here at home.
+            JBMSPORTS was founded in Harare with a single mission: to give Zimbabwe's athletes access to world-class coaching and premium equipment across Tennis, Hockey, Swimming, Boxing — and more.
           </motion.p>
         </div>
       </div>
@@ -57,25 +59,33 @@ export default function AboutPage({ navigate }) {
             <h2 className="font-heading text-4xl md:text-5xl text-primary mb-6">FROM ONE COURT TO A MOVEMENT</h2>
             <div className="space-y-4 text-muted text-sm leading-relaxed">
               <p>JBMSPORTS started in 2015 when Coach Joseph Mhike returned to Harare after completing his ITF Level 3 certification abroad. With a borrowed court and a passion to share what he'd learned, he began coaching a small group of 12 students in Borrowdale.</p>
-              <p>Within two years, that group had grown to 120 students. Players who trained with Joseph began winning regional tournaments. Parents and kids started lining up for spots. It was clear — Zimbabwe was hungry for this.</p>
-              <p>Today, JBMSPORTS operates across 3 premium courts in Harare, has trained 500+ players, and runs Zimbabwe's only nationally-recognised junior tennis development pipeline. We also opened Zimbabwe's first dedicated tennis equipment store, bringing world brands like Wilson, Babolat, and Nike to local players.</p>
+              <p>Within two years, that group had grown to 120 athletes. Players who trained with Joseph began winning regional tournaments. Parents and kids started lining up for spots. It was clear — Zimbabwe was hungry for world-class sport coaching.</p>
+              <p>Today, JBMSPORTS has expanded beyond tennis into Hockey, Swimming, and Boxing, with dedicated facilities and certified coaches across all disciplines. We have trained 500+ athletes and operate Zimbabwe's only multi-sport junior development pipeline — all from right here in Harare.</p>
             </div>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative h-[400px] rounded-2xl overflow-hidden"
-            whileHover={{ scale: 1.01 }}
-          >
-            <img src="/blackgirlracket.png" alt="Coach Joseph Mhike" className="w-full h-full object-cover object-top" />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent" />
-            <div className="absolute bottom-6 left-6">
-              <p className="text-lime text-xs tracking-widest uppercase">Coach Joseph Mhike</p>
-              <p className="text-primary font-heading text-xl">Founder & Head Coach</p>
-            </div>
-          </motion.div>
+
+          {/* 2x2 sport grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {SPORTS_CONFIG.map((sport, i) => (
+              <motion.div
+                key={sport.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
+                className="relative rounded-2xl overflow-hidden"
+                style={{ aspectRatio: '4/3' }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <img src={sport.homeCardImg} alt={sport.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/10 to-transparent" />
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
+                  <span className="text-base">{sport.emoji}</span>
+                  <span className="text-white font-heading text-xs tracking-widest uppercase">{sport.name}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -86,14 +96,14 @@ export default function AboutPage({ navigate }) {
             <p className="text-lime text-sm tracking-[0.3em] uppercase mb-3">What We Stand For</p>
             <h2 className="font-heading text-4xl md:text-5xl text-primary">OUR VALUES</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {values.map((value, i) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
+                transition={{ delay: i * 0.1 }}
                 className="card-surface rounded-2xl p-8 text-center"
                 whileHover={{ y: -6 }}
               >
@@ -112,11 +122,11 @@ export default function AboutPage({ navigate }) {
       <section className="py-20 px-6 md:px-16 lg:px-24 bg-dark">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-lime text-sm tracking-[0.3em] uppercase mb-3">Facilities</p>
-            <h2 className="font-heading text-4xl md:text-5xl text-primary">OUR COURTS</h2>
+            <p className="text-lime text-sm tracking-[0.3em] uppercase mb-3">Across All Sports</p>
+            <h2 className="font-heading text-4xl md:text-5xl text-primary">OUR FACILITIES</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {gallery.map((img, i) => (
+            {gallery.map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -125,10 +135,13 @@ export default function AboutPage({ navigate }) {
                 transition={{ delay: i * 0.08 }}
                 className="relative aspect-square rounded-xl overflow-hidden cursor-pointer"
                 whileHover={{ scale: 1.03 }}
-                onClick={() => setLightboxImg(img)}
+                onClick={() => setLightboxImg(item.src)}
               >
-                <img src={img} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover" />
+                <img src={item.src} alt={item.label} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-dark/20 hover:bg-dark/0 transition-colors" />
+                <div className="absolute bottom-3 left-3">
+                  <span className="text-white/80 text-xs font-heading tracking-widest uppercase">{item.label}</span>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -147,7 +160,7 @@ export default function AboutPage({ navigate }) {
           <br />BUILDING CHAMPIONS
         </motion.h2>
         <p className="text-primary/70 mb-8 max-w-md mx-auto">
-          Join Zimbabwe's fastest-growing tennis community. Our courts are open and our coaches are ready.
+          Join Zimbabwe's fastest-growing multi-sport academy. Our coaches are ready — pick your sport and get started today.
         </p>
         <motion.button
           onClick={() => navigate('book')}
