@@ -1,25 +1,14 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { ShoppingBag, Plus, Star } from 'lucide-react'
+import { ShoppingBag, Plus } from 'lucide-react'
 import { useCart } from '../../context/CartContext'
 
-function StarRating({ count }) {
-  return (
-    <span className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <Star key={i} size={10} className={i <= count ? 'text-[#F5A623] fill-[#F5A623]' : 'text-muted'} />
-      ))}
-    </span>
-  )
-}
-
 const featured = [
-  { name: 'Wilson Pro Staff 97 Racket', price: 85, condition: 'new', sport: 'Tennis', img: '/racket.jpg' },
-  { name: 'Grays GX5000 Hockey Stick', price: 65, condition: 'new', sport: 'Hockey', img: 'https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?w=400&q=80' },
-  { name: 'Speedo Fastskin Goggles', price: 28, condition: 'new', sport: 'Swimming', img: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&q=80' },
-  { name: 'Everlast Pro Gloves 16oz', price: 48, condition: 'new', sport: 'Boxing', img: 'https://images.unsplash.com/photo-1549476464-37392f717541?w=400&q=80' },
-  { name: 'Head Speed MP Racket (2022)', price: 40, condition: 'preloved', sport: 'Tennis', img: '/racket on ground.jpg', conditionRating: 4, conditionNote: 'Restrung, grip replaced' },
-  { name: 'Everlast 14oz Gloves', price: 22, condition: 'preloved', sport: 'Boxing', img: 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=400&q=80', conditionRating: 4, conditionNote: 'Used 6 months, cleaned' },
+  { name: 'Nike Air Tracksuit', price: 70, sport: 'Clothing', img: '/shop/nike-tracksuit-black.jpeg' },
+  { name: 'Asics Tennis Shoes', price: 140, sport: 'Shoes', img: '/shop/asics-pink.jpeg' },
+  { name: 'Odea Balls + Dampeners', price: 195, sport: 'Accessories', img: '/shop/odea-balls-box.jpeg' },
+  { name: 'Babolat Racket', price: 250, sport: 'Rackets', img: '/shop/babolat-rafa-aero.jpeg' },
+  { name: 'Head Radical', price: 300, sport: 'Rackets', img: '/shop/head-radical-label.jpeg' },
 ]
 
 function ProductCard({ product, index }) {
@@ -27,7 +16,6 @@ function ProductCard({ product, index }) {
   const { addItem } = useCart()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
-  const isNew = product.condition === 'new'
 
   return (
     <motion.div
@@ -41,16 +29,12 @@ function ProductCard({ product, index }) {
       <div className="relative overflow-hidden aspect-square">
         <motion.img src={product.img} alt={product.name} className="w-full h-full object-cover" whileHover={{ scale: 1.06 }} transition={{ duration: 0.5 }} />
         <div className="absolute top-3 left-3 flex gap-1.5">
-          <span className={`text-[10px] font-heading tracking-widest px-2 py-0.5 rounded-full ${isNew ? 'bg-lime text-dark' : 'bg-[#F5A623] text-dark'}`}>
-            {isNew ? 'NEW' : 'PRE-LOVED'}
-          </span>
+          <span className="text-[10px] font-heading tracking-widest px-2 py-0.5 rounded-full bg-lime text-dark">NEW</span>
           <span className="text-[10px] font-medium tracking-widest text-muted bg-dark/70 px-2 py-0.5 rounded-full uppercase">{product.sport}</span>
         </div>
       </div>
       <div className="p-4">
         <h3 className="text-primary text-sm font-medium leading-snug mb-1">{product.name}</h3>
-        {!isNew && product.conditionRating && <StarRating count={product.conditionRating} />}
-        {!isNew && product.conditionNote && <p className="text-muted text-xs mt-0.5 italic">"{product.conditionNote}"</p>}
         <p className="text-lime font-heading text-lg mt-1 mb-3">${product.price} USD</p>
         <motion.button
           onClick={() => { addItem({ name: product.name, price: product.price, img: product.img }); setAdded(true); setTimeout(() => setAdded(false), 2000) }}
@@ -82,7 +66,7 @@ export default function MerchPreview({ navigate }) {
             <ShoppingBag size={16} />VIEW ALL GEAR
           </motion.button>
         </div>
-        <div className="flex md:grid md:grid-cols-3 lg:grid-cols-6 gap-5 overflow-x-auto pb-4 md:pb-0 hide-scrollbar">
+        <div className="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-5 overflow-x-auto pb-4 md:pb-0 hide-scrollbar">
           {featured.map((product, i) => <ProductCard key={product.name} product={product} index={i} />)}
         </div>
       </div>
