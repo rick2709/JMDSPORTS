@@ -12,12 +12,12 @@ const values = [
 ]
 
 const gallery = [
-  { src: '/court.jpg', label: 'Tennis Courts' },
+  { src: '/tennis/tennis-girl-serve.jpeg', label: 'Tennis Courts' },
   { src: SPORTS_CONFIG.find(s => s.id === 'hockey').homeCardImg, label: 'Hockey Pitch' },
   { src: SPORTS_CONFIG.find(s => s.id === 'swimming').homeCardImg, label: 'Swimming Pool' },
   { src: SPORTS_CONFIG.find(s => s.id === 'boxing').homeCardImg, label: 'Boxing Gym' },
-  { src: '/tennishand.jpg', label: 'Tennis Training' },
-  { src: '/blackgirlracket.png', label: 'Junior Development' },
+  { src: '/tennis/tennis-coaching.jpeg', label: 'Tennis Training' },
+  { src: '/tennis/tennis-girl-backhand.jpeg', label: 'Junior Development' },
 ]
 
 export default function AboutPage({ navigate }) {
@@ -30,7 +30,7 @@ export default function AboutPage({ navigate }) {
       {/* Hero */}
       <div ref={ref} className="relative py-24 px-6 md:px-16 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/tennishand.jpg" alt="JBMSPORTS academy" className="w-full h-full object-cover object-top" />
+          <img src="/tennis/tennis-player-serve.jpeg" alt="JBMSPORTS academy" className="w-full h-full object-cover object-top" />
           <div className="absolute inset-0 bg-dark/85" />
         </div>
         <div className="relative z-10 max-w-3xl">

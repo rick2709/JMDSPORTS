@@ -1,3 +1,5 @@
+import { SHOP_PRODUCTS } from './products'
+
 export const WHATSAPP_NUMBER = '263783316659'
 
 const HOCKEY_IMG = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkjlXfx-DTxc_CHceYczFUmCt8crwJGXnYvBNvBKwMBg&s'
@@ -11,37 +13,37 @@ export const SPORTS_CONFIG = [
     emoji: '🎾',
     tagline: 'Serve. Spin. Win.',
     brief: 'Beginner to elite coaching on professional courts.',
-    homeCardImg: '/tennishand.jpg',
+    homeCardImg: '/tennis/tennis-girl-serve.jpeg',
     heroHeadline: 'MASTER THE GAME',
     heroSubtext: 'Professional tennis coaching for all ages and skill levels. From your first racket swing to national competition.',
-    heroImage: '/court.jpg',
+    heroImage: '/tennis/tennis-player-serve.jpeg',
     programs: [
       {
         title: 'Beginner Coaching',
         subtitle: 'Ages 6–16 & Adults',
         description: 'Perfect for newcomers. Teaches all fundamentals — grip, stance, footwork, rallying, and serving — in a fun, pressure-free environment.',
         features: ['Grip & footwork basics', 'Serve & return drills', 'Rally consistency', 'Court etiquette', 'Fun games & match play', 'Parent observation welcome'],
-        price: '$30/month', tag: 'STARTER', img: '/blackgirlracket.png',
+        price: '$30/month', tag: 'STARTER', img: '/tennis/tennis-girl-backhand.jpeg',
       },
       {
         title: 'Intermediate Training',
         subtitle: 'Skill Development',
         description: 'Take your game to the next level. Tactical shot selection, spin variations, net play, and competitive match strategy.',
         features: ['Topspin & slice technique', 'Net approach & volleys', 'Match strategy', 'Competitive drilling', 'Video feedback', 'Small group format'],
-        price: '$55/month', tag: 'POPULAR', img: '/tennishand.jpg',
+        price: '$55/month', tag: 'POPULAR', img: '/tennis/tennis-coaching.jpeg',
       },
       {
         title: 'Elite / Advanced',
         subtitle: 'Tournament Prep',
         description: 'For serious competitors. High-intensity training, full video analysis, physical conditioning, and complete tournament preparation.',
         features: ['Daily on-court sessions', '1-on-1 with Head Coach', 'Full video analysis', 'Fitness & conditioning', 'Tournament prep', 'Mental performance coaching'],
-        price: '$90/month', tag: 'ELITE', img: '/racket on ground.jpg',
+        price: '$90/month', tag: 'ELITE', img: '/tennis/tennis-player-serve.jpeg',
       },
     ],
     coaches: [
-      { name: 'Coach Joseph Mhike', title: 'Head Tennis Coach', img: '/blackgirlracket.png', exp: '15+ years', bio: 'Former national champion and certified ITF Level 3 coach. Joseph founded JBMSPORTS to give Zimbabwean athletes access to world-class coaching.' },
-      { name: 'Coach Tariro Ndlovu', title: 'Juniors & Development', img: '/tennishand.jpg', exp: '8 years', bio: 'Passionate about growing the game from the roots. Tariro has coached over 200 young players aged 6–16 across Harare.' },
-      { name: 'Coach Simba Chikwanda', title: 'Fitness & Conditioning', img: '/racket on ground.jpg', exp: '10 years', bio: 'Certified strength and conditioning specialist bringing elite-level athletic training to the tennis court.' },
+      { name: 'Coach Joseph Mhike', title: 'Head Tennis Coach', img: '/tennis/tennis-coaching.jpeg', exp: '15+ years', bio: 'Former national champion and certified ITF Level 3 coach. Joseph founded JBMSPORTS to give Zimbabwean athletes access to world-class coaching.' },
+      { name: 'Coach Tariro Ndlovu', title: 'Juniors & Development', img: '/tennis/tennis-girl-backhand.jpeg', exp: '8 years', bio: 'Passionate about growing the game from the roots. Tariro has coached over 200 young players aged 6–16 across Harare.' },
+      { name: 'Coach Simba Chikwanda', title: 'Fitness & Conditioning', img: '/tennis/tennis-girl-serve.jpeg', exp: '10 years', bio: 'Certified strength and conditioning specialist bringing elite-level athletic training to the tennis court.' },
     ],
     pricing: [
       { name: 'Starter', price: 30, features: ['2 sessions/week', 'Group training', 'Skill assessment', 'Court access', 'Community membership'], cta: 'GET STARTED' },
@@ -50,12 +52,7 @@ export const SPORTS_CONFIG = [
     ],
     bookingSubmitLabel: 'BOOK MY TENNIS SESSION',
     extraFields: [],
-    featuredMerch: [
-      { name: 'Wilson Pro Staff 97 Racket', price: 85, condition: 'new', img: '/racket.jpg' },
-      { name: 'Nike Court Zoom Shoes', price: 75, condition: 'new', img: '/court.jpg' },
-      { name: 'Head Speed MP Racket (2022)', price: 40, condition: 'preloved', img: '/racket on ground.jpg', conditionNote: 'Restrung, grip replaced', conditionRating: 4 },
-      { name: 'Babolat Shorts (M)', price: 12, condition: 'preloved', img: '/balls.jpg', conditionNote: 'Faded slightly, no damage', conditionRating: 3 },
-    ],
+    featuredMerch: SHOP_PRODUCTS,
   },
 
   {
@@ -103,12 +100,7 @@ export const SPORTS_CONFIG = [
     ],
     bookingSubmitLabel: 'BOOK MY HOCKEY SESSION',
     extraFields: [],
-    featuredMerch: [
-      { name: 'Grays GX5000 Hockey Stick', price: 65, condition: 'new', img: HOCKEY_IMG },
-      { name: 'Adidas Hockey Shoes', price: 70, condition: 'new', img: HOCKEY_IMG },
-      { name: 'Grays GX3000 Stick (2022)', price: 30, condition: 'preloved', img: HOCKEY_IMG, conditionNote: 'Light surface scratches', conditionRating: 4 },
-      { name: 'Hockey Shin Guards (M)', price: 10, condition: 'preloved', img: HOCKEY_IMG, conditionNote: 'Used one season', conditionRating: 3 },
-    ],
+    featuredMerch: SHOP_PRODUCTS,
   },
 
   {
@@ -158,12 +150,7 @@ export const SPORTS_CONFIG = [
     extraFields: [
       { id: 'strokePreference', label: 'Stroke Preference', type: 'select', options: ['Freestyle', 'Backstroke', 'Breaststroke', 'Butterfly', 'All Strokes'] },
     ],
-    featuredMerch: [
-      { name: 'Speedo Fastskin Goggles', price: 28, condition: 'new', img: SWIMMING_IMG },
-      { name: 'Arena Carbon Core Swimsuit', price: 55, condition: 'new', img: SWIMMING_IMG },
-      { name: 'Arena Powerskin Suit (M)', price: 22, condition: 'preloved', img: SWIMMING_IMG, conditionNote: '5 competitions used', conditionRating: 4 },
-      { name: 'Speedo Training Fins Size 8', price: 14, condition: 'preloved', img: SWIMMING_IMG, conditionNote: 'Some scuff marks', conditionRating: 3 },
-    ],
+    featuredMerch: SHOP_PRODUCTS,
   },
 
   {
@@ -213,11 +200,6 @@ export const SPORTS_CONFIG = [
     extraFields: [
       { id: 'boxingType', label: 'Boxing Type', type: 'select', options: ['Fitness Only', 'Amateur Sparring', 'Competitive'] },
     ],
-    featuredMerch: [
-      { name: 'Everlast Pro Gloves 16oz', price: 48, condition: 'new', img: BOXING_IMG },
-      { name: 'Title Boxing Headgear', price: 55, condition: 'new', img: BOXING_IMG },
-      { name: 'Everlast 14oz Gloves', price: 22, condition: 'preloved', img: BOXING_IMG, conditionNote: 'Used 6 months, cleaned', conditionRating: 4 },
-      { name: 'Boxing Headgear (M)', price: 20, condition: 'preloved', img: BOXING_IMG, conditionNote: 'Light padding wear', conditionRating: 3 },
-    ],
+    featuredMerch: SHOP_PRODUCTS,
   },
 ]
