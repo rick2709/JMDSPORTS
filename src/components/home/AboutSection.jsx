@@ -33,7 +33,7 @@ function CounterNumber({ target, suffix = '' }) {
 }
 
 const stats = [
-  { target: 500, suffix: '+', label: 'Athletes Trained' },
+  { target: 120, suffix: '+', label: 'Athletes Trained' },
   { target: 4, suffix: '', label: 'Sports & Growing' },
   { target: 8, suffix: '+', label: 'Certified Coaches' },
   { target: 10, suffix: '+', label: 'Years of Excellence' },

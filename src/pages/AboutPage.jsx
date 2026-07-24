@@ -60,7 +60,7 @@ export default function AboutPage({ navigate }) {
             <div className="space-y-4 text-muted text-sm leading-relaxed">
               <p>JBMSPORTS started in 2015 when Coach Joseph Mhike returned to Harare after completing his ITF Level 3 certification abroad. With a borrowed court and a passion to share what he'd learned, he began coaching a small group of 12 students in Borrowdale.</p>
               <p>Within two years, that group had grown to 120 athletes. Players who trained with Joseph began winning regional tournaments. Parents and kids started lining up for spots. It was clear — Zimbabwe was hungry for world-class sport coaching.</p>
-              <p>Today, JBMSPORTS has expanded beyond tennis into Hockey, Swimming, and Boxing, with dedicated facilities and certified coaches across all disciplines. We have trained 500+ athletes and operate Zimbabwe's only multi-sport junior development pipeline — all from right here in Harare.</p>
+              <p>Today, JBMSPORTS has expanded beyond tennis into Hockey, Swimming, and Boxing, with dedicated facilities and certified coaches across all disciplines. We have trained 120+ athletes and operate Zimbabwe's only multi-sport junior development pipeline — all from right here in Harare.</p>
             </div>
           </motion.div>
 

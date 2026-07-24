@@ -17,7 +17,7 @@ const slides = [
 const heroWords = ['TRAIN.', 'COMPETE.', 'DOMINATE.']
 
 const statItems = [
-  { value: '500+', label: 'Athletes Trained' },
+  { value: '120+', label: 'Athletes Trained' },
   { value: '4', label: 'Sports & Growing' },
   { value: '8+', label: 'Certified Coaches' },
   { value: '10+', label: 'Years Experience' },

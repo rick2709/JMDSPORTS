@@ -4,24 +4,31 @@ import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Farai Mutasa',
-    role: 'Intermediate Player, Harare',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    name: 'Eric',
+    role: 'JBMSPORTS Member',
+    avatar: null,
     quote: "JBMSPORTS completely transformed my game. After 3 months with Coach JB, I went from a complete beginner to winning my first club tournament. The coaching here is world-class.",
     stars: 5,
   },
   {
-    name: 'Rutendo Chigamba',
-    role: 'Junior Player (Age 14)',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+    name: 'Tanya',
+    role: 'JBMSPORTS Member',
+    avatar: null,
     quote: "Coach Tariro makes every session so much fun! I've improved so much in just a few months. My parents are amazed at how quickly I picked up the game. Best decision ever!",
     stars: 5,
   },
   {
-    name: 'Tinashe Mapfumo',
-    role: 'Elite Program, National Circuit',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
-    quote: "The Elite Program is genuinely world-class. Coach Simba's fitness training has completely changed my physical game, and the rackets from their shop are excellent quality.",
+    name: 'Princess',
+    role: 'JBMSPORTS Member',
+    avatar: null,
+    quote: "The Elite Program is genuinely world-class. The fitness training has completely changed my physical game, and the gear from the shop is excellent quality.",
+    stars: 5,
+  },
+  {
+    name: 'Vivian',
+    role: 'JBMSPORTS Member',
+    avatar: null,
+    quote: "I never thought I'd fall in love with sport the way I have since joining JBMSPORTS. The coaches are incredibly supportive and the environment pushes you to be your best.",
     stars: 5,
   },
 ]
@@ -83,11 +90,9 @@ export default function Testimonials() {
                 "{testimonials[current].quote}"
               </p>
               <div className="flex items-center gap-4">
-                <img
-                  src={testimonials[current].avatar}
-                  alt={testimonials[current].name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-lime/30"
-                />
+                <div className="w-12 h-12 rounded-full border-2 border-lime/30 bg-lime/10 flex items-center justify-center flex-shrink-0">
+                  <span className="font-heading text-lime text-lg">{testimonials[current].name[0]}</span>
+                </div>
                 <div>
                   <p className="text-primary font-medium text-sm">{testimonials[current].name}</p>
                   <p className="text-muted text-xs">{testimonials[current].role}</p>
