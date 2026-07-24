@@ -7,14 +7,14 @@ const testimonials = [
     name: 'Eric',
     role: 'JBMSPORTS Member',
     avatar: null,
-    quote: "JBMSPORTS completely transformed my game. After 3 months with Coach JB, I went from a complete beginner to winning my first club tournament. The coaching here is world-class.",
+    quote: "JBMSPORTS completely transformed my game. After 3 months with Coach Joseph, I went from a complete beginner to winning my first club tournament. The coaching here is world-class.",
     stars: 5,
   },
   {
     name: 'Tanya',
     role: 'JBMSPORTS Member',
     avatar: null,
-    quote: "Coach Tariro makes every session so much fun! I've improved so much in just a few months. My parents are amazed at how quickly I picked up the game. Best decision ever!",
+    quote: "Coach Joseph makes every session so much fun! I've improved so much in just a few months. My parents are amazed at how quickly I picked up the game. Best decision ever — thank you Coach Joseph!",
     stars: 5,
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     name: 'Vivian',
     role: 'JBMSPORTS Member',
     avatar: null,
-    quote: "I never thought I'd fall in love with sport the way I have since joining JBMSPORTS. The coaches are incredibly supportive and the environment pushes you to be your best.",
+    quote: "I never thought I'd fall in love with sport the way I have since joining JBMSPORTS. Coach Joseph is incredibly supportive and the environment pushes you to be your best.",
     stars: 5,
   },
 ]

@@ -161,7 +161,7 @@ export default function SportPage({ sport, navigate }) {
             <motion.p initial={{ opacity: 0, y: 20 }} animate={pricingInView ? { opacity: 1, y: 0 } : {}} className="text-lime text-sm tracking-[0.3em] uppercase mb-3">Pricing</motion.p>
             <motion.h2 initial={{ opacity: 0, y: 30 }} animate={pricingInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }} className="font-heading text-4xl md:text-5xl text-primary">CHOOSE YOUR LEVEL</motion.h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 items-start">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-start">
             {sport.pricing.map((plan, i) => (
               <motion.div
                 key={plan.name}
@@ -179,7 +179,7 @@ export default function SportPage({ sport, navigate }) {
                 <h3 className={`font-heading text-2xl mb-4 ${plan.highlighted ? 'text-dark' : 'text-primary'}`}>{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-6">
                   <span className={`font-heading text-5xl ${plan.highlighted ? 'text-dark' : 'text-lime'}`}>${plan.price}</span>
-                  <span className={`text-sm ${plan.highlighted ? 'text-dark/70' : 'text-muted'}`}>/month</span>
+                  <span className={`text-sm ${plan.highlighted ? 'text-dark/70' : 'text-muted'}`}>/{plan.per || 'month'}</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((f) => (
