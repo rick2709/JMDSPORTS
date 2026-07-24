@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { Calendar } from 'lucide-react'
 import Footer from '../components/Footer'
 
-const BOOKING_URL = 'https://calendar.app.google/dewJa6q76dbxW3Je8'
+const BOOKING_URL = 'https://calendar.app.google/srnXejpHyV5jkuy79'
 
 export default function BookPage({ navigate }) {
   const ref = useRef(null)

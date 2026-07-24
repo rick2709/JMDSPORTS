@@ -4,7 +4,7 @@ import { Check, Plus, Star } from 'lucide-react'
 import Footer from './Footer'
 import { useCart } from '../context/CartContext'
 
-const BOOKING_URL = 'https://calendar.app.google/dewJa6q76dbxW3Je8'
+const BOOKING_URL = 'https://calendar.app.google/srnXejpHyV5jkuy79'
 
 function StarRating({ count }) {
   return (
